@@ -1,1 +1,4 @@
-
+Using bootstrap (replace= True), create 500 samples (of 150 observation each) from the
+population and find the average mean, standard deviation and percentile for BloodPressure and
+compare this with these statistics from the population for the same variable. Again, you should
+create charts for this comparison. Report on your findings. 
