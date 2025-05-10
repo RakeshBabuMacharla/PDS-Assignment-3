@@ -1,0 +1,25 @@
+# Set seed for reproducibility
+np.random.seed(42)
+
+sample = df.sample(n=25, random_state=42)
+sample_glucose_mean = sample['Glucose'].mean()
+sample_glucose_max = sample['Glucose'].max()
+
+population_glucose_mean = df['Glucose'].mean()
+population_glucose_max = df['Glucose'].max()
+
+# Plot mean and max comparison
+plt.figure(figsize=(10, 5))
+
+# Mean comparison
+plt.subplot(1, 2, 1)
+plt.bar(['Sample Mean', 'Population Mean'], [sample_glucose_mean, population_glucose_mean], color=['orange', 'blue'])
+plt.title('Mean Glucose Comparison')
+
+# Max comparison
+plt.subplot(1, 2, 2)
+plt.bar(['Sample Max', 'Population Max'], [sample_glucose_max, population_glucose_max], color=['orange', 'blue'])
+plt.title('Max Glucose Comparison')
+
+plt.tight_layout()
+plt.show()
