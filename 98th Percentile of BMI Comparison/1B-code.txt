@@ -1,0 +1,9 @@
+sample_bmi_98 = np.percentile(sample['BMI'], 98)
+population_bmi_98 = np.percentile(df['BMI'], 98)
+
+# Plot BMI percentile comparison
+plt.figure(figsize=(6, 5))
+plt.bar(['Sample BMI 98th', 'Population BMI 98th'], [sample_bmi_98, population_bmi_98], color=['green', 'purple'])
+plt.title('98th Percentile of BMI Comparison')
+plt.ylabel('BMI')
+plt.show()
