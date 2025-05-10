@@ -1,0 +1,9 @@
+---- Report Summary ----
+Population BloodPressure Mean: 69.11
+Bootstrap Average Mean: 69.18
+
+Population BloodPressure Std Dev: 19.36
+Bootstrap Average Std Dev: 19.07
+
+Population BloodPressure 98th Percentile: 99.32
+Bootstrap Average 98th Percentile: 97.90

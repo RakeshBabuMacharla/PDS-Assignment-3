@@ -1,0 +1,36 @@
+bootstrap_means = []
+bootstrap_stds = []
+bootstrap_percentiles = []
+
+for _ in range(500):
+    boot_sample = df.sample(n=150, replace=True)
+    bp = boot_sample['BloodPressure']
+    bootstrap_means.append(bp.mean())
+    bootstrap_stds.append(bp.std())
+    bootstrap_percentiles.append(np.percentile(bp, 98))
+
+# Bootstrap results
+boot_mean_avg = np.mean(bootstrap_means)
+boot_std_avg = np.mean(bootstrap_stds)
+boot_percentile_avg = np.mean(bootstrap_percentiles)
+
+# Population statistics
+pop_bp_mean = df['BloodPressure'].mean()
+pop_bp_std = df['BloodPressure'].std()
+pop_bp_98 = np.percentile(df['BloodPressure'], 98)
+
+# Compare bootstrap and population
+stats_labels = ['Mean', 'Std Dev', '98th Percentile']
+bootstrap_values = [boot_mean_avg, boot_std_avg, boot_percentile_avg]
+population_values = [pop_bp_mean, pop_bp_std, pop_bp_98]
+
+x = np.arange(len(stats_labels))
+width = 0.35
+
+plt.figure(figsize=(8, 5))
+plt.bar(x - width/2, bootstrap_values, width, label='Bootstrap', color='skyblue')
+plt.bar(x + width/2, population_values, width, label='Population', color='salmon')
+plt.xticks(x, stats_labels)
+plt.title('Blood Pressure: Bootstrap vs Population')
+plt.legend()
+plt.show()
